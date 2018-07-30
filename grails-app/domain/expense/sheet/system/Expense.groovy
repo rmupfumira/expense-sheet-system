@@ -8,8 +8,14 @@ class Expense {
     Double amount
     String description
 
+    static belongsTo = [user: User]
+
     static constraints = {
         description blank: false
         amount blank: false
+    }
+
+    String toString() {
+        return description+" - "+amount
     }
 }

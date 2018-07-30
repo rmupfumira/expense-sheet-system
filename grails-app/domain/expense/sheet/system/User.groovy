@@ -11,4 +11,8 @@ class User {
         name blank: false, unique: true
         initialBankBalance blank: false
     }
+
+    String toString() {
+        return name
+    }
 }
