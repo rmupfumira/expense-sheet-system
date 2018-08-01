@@ -128,7 +128,7 @@ class ExpenseController implements GrailsConfigurationAware{
         for(expense in user.expenses) {
             expense.runningBalance = runningbalance - expense.amount
             runningbalance = expense.runningBalance
-            expense.convertedAmount = currencyConverterService.ZarToUsd(expense.amount)
+            expense.convertedAmount = currencyConverterService.convertRandToUSD(expense.amount)
         }
 
         return user
