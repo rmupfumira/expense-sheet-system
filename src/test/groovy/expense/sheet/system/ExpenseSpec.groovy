@@ -11,8 +11,5 @@ class ExpenseSpec extends Specification implements DomainUnitTest<Expense> {
     def cleanup() {
     }
 
-    void "test something"() {
-        expect:"fix me"
-            true == false
-    }
+
 }
