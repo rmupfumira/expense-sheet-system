@@ -24,7 +24,8 @@
         <tr>
             <th>Date of transaction</th>
             <th>Description</th>
-            <th>Amount</th>
+            <th>Amount(Rand)</th>
+            <th>Amount(USD)</th>
             <th>Running balance</th>
         </tr>
         <g:each var="expense" in="${user.expenses}">
@@ -32,6 +33,7 @@
              <td>${expense.dateCreated}</td>
              <td>${expense.description}</td>
              <td>${expense.amount}</td>
+             <td>${expense.convertedAmount}</td>
              <td>${expense.runningBalance}</td>
          </tr>
         </g:each>

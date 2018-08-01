@@ -11,6 +11,8 @@ class ExpenseController implements GrailsConfigurationAware{
 
     UserService userService
 
+    CurrencyConverterService currencyConverterService
+
     String csvMimeType
 
     String encoding
@@ -104,7 +106,7 @@ class ExpenseController implements GrailsConfigurationAware{
     def downloadCSV(Long id) {
         final String filename = 'statement.csv'
         def user = getUserStatement(id)
-        def lines = user.expenses.collect { [it.dateCreated, it.description, it.amount, it.runningBalance].join(';') } as List<String>
+        def lines = user.expenses.collect { [it.dateCreated, it.description, it.amount, it.convertedAmount, it.runningBalance].join(';') } as List<String>
 
         def outs = response.outputStream
         response.status = OK.value()
@@ -126,6 +128,7 @@ class ExpenseController implements GrailsConfigurationAware{
         for(expense in user.expenses) {
             expense.runningBalance = runningbalance - expense.amount
             runningbalance = expense.runningBalance
+            expense.convertedAmount = currencyConverterService.ZarToUsd(expense.amount)
         }
 
         return user

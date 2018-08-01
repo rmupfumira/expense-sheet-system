@@ -8,8 +8,9 @@ class Expense {
     Double amount
     String description
     Double runningBalance = 0.0
+    Double convertedAmount
 
-    static transients = ['runningBalance']
+    static transients = ['runningBalance', 'convertedAmount']
 
     static belongsTo = [user: User]
 
