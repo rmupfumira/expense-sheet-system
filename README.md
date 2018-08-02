@@ -15,7 +15,7 @@ To get started do the following:
     
 or
 -   Clone the  [Git](https://git-scm.com/)  repository:  
-    `git clone  [https://github.com/rmupfumira/expense-sheet-system.git](https://github.com/rmupfumira/expense-sheet-system.git)`
+    `git clone  https://github.com/rmupfumira/expense-sheet-system.git`
 
 ## Running the app
 
